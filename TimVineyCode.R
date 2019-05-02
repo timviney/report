@@ -288,7 +288,7 @@ z=-0.75
 zs<-rep(z,length(x))
 lines(x,zs,lwd=2)
 ###
-varee=(0.01*2)^2 # Take Var[epsilon]=0.0001
+varee=(0.01*2)^2 # Take Var[epsilon]=0.0004
 # Define and calculate implausibility
 I2<- function(x){((EDf(x)-z)^2)/(varDf(x)+varee)}
 y<-c()
@@ -480,8 +480,8 @@ fp2<-function(actualplot,expectation,SD,implausibility,SK,Levelss,ssave,nahme){
     
     if(ssave==TRUE){pdf(file=file.path("C:","Users","tcvin","OneDrive","Work","DIS","pics","core",paste(nahme,"sk",".pdf",sep="")))}
     
-    filled.contour(x,y, z, color = colorRampPalette(c('red','chartreuse','navy'),1),
-                   levels = seq(-2,2,0.1),
+    filled.contour(x,y, z, color = colorRampPalette(c('red','grey97','blue'),1),
+                   levels = seq(-2,2,length=24),
                    plot.title = {title(main = "Title",
                                        xlab = expression('x'[1]), ylab = expression('x'[2]))
                      points(js[,1],js[,2],lwd=6)
@@ -1054,7 +1054,7 @@ fpB2<-function(actualplot,expectation,SD,SK,Levelss,ssave,nahme){
     if(ssave==TRUE){pdf(file=file.path("C:","Users","tcvin","OneDrive","Work","DIS","pics","core",paste(nahme,"sk",".pdf",sep="")))}
     plot.new()
     plot.window(xlim = c(1.2,3.4),ylim = c(1.2,3.4),asp=NA)
-    .filled.contour(x,y, z,levels = seq(-2,2,0.1), col = colorRampPalette(c('red','chartreuse','navy'),1)(41))
+    .filled.contour(x,y, z,levels = seq(-2,2,length=24), col = colorRampPalette(c('red','grey97','blue'),1)(23))
     if(ssave==TRUE){dev.off()}
   }
 }
@@ -1135,7 +1135,7 @@ fpBD2<-function(actualplot,expectation,SD,SK,Levelss,ssave,nahme){
     if(ssave==TRUE){pdf(file=file.path("C:","Users","tcvin","OneDrive","Work","DIS","pics","core",paste(nahme,"sd",".pdf",sep="")))}
     plot.new()
     plot.window(xlim = c(1.2,3.4),ylim = c(1.2,3.4),asp=NA)
-    .filled.contour(x,y, z,levels = seq(0,1,0.05), col = terrain.colors(15))
+    .filled.contour(x,y, z,levels = seq(0,0.65,0.05), col = terrain.colors(13))
     points(js[,1],js[,2],lwd=6)
     if(ssave==TRUE){dev.off()}
   }
@@ -1147,7 +1147,7 @@ fpBD2<-function(actualplot,expectation,SD,SK,Levelss,ssave,nahme){
     
     plot.new()
     plot.window(xlim = c(1.2,3.4),ylim = c(1.2,3.4),asp=NA)
-    .filled.contour(x,y, z,levels = seq(-2,2,0.1), col = colorRampPalette(c('red','chartreuse','navy'),1)(41))
+    .filled.contour(x,y, z,levels = seq(-2,2,length=24), col = colorRampPalette(c('red','grey97','blue'),1)(23))
     points(js[,1],js[,2],lwd=6)
     if(ssave==TRUE){dev.off()}
   }
@@ -1168,7 +1168,6 @@ fpBPerp2<-function(actualplot,expectation,SD,SK,Levelss,ssave,nahme){
     if(ssave==TRUE){dev.off()}
     
   }
-  K <- f(cbind(rep(x[1],length(x)),y))
   Ef <- B0
   varf <- sigu^2
   r<-function(a){ # We define this to save time retyping
@@ -1215,7 +1214,7 @@ fpBPerp2<-function(actualplot,expectation,SD,SK,Levelss,ssave,nahme){
     if(ssave==TRUE){pdf(file=file.path("C:","Users","tcvin","OneDrive","Work","DIS","pics","core",paste(nahme,"sk",".pdf",sep="")))}
     plot.new()
     plot.window(xlim = c(1.2,3.4),ylim = c(1.2,3.4),asp=NA)
-    .filled.contour(x,y, z,levels = seq(-2,2,0.1), col = colorRampPalette(c('red','chartreuse','navy'),1)(41))
+    .filled.contour(x,y, z,levels = seq(-2,2,length=24), col = colorRampPalette(c('red','grey97','blue'),1)(23))
     if(ssave==TRUE){dev.off()}
   }
 }
@@ -1306,7 +1305,7 @@ fpBPerpD2<-function(actualplot,expectation,SD,SK,Levelss,ssave,nahme){
     if(ssave==TRUE){pdf(file=file.path("C:","Users","tcvin","OneDrive","Work","DIS","pics","core",paste(nahme,"sd",".pdf",sep="")))}
     plot.new()
     plot.window(xlim = c(1.2,3.4),ylim = c(1.2,3.4),asp=NA)
-    .filled.contour(x,y, z,levels = seq(0,1,0.05), col = terrain.colors(20))
+    .filled.contour(x,y, z,levels = seq(0,65,0.05), col = terrain.colors(12))
     points(js[,1],js[,2],lwd=6)
     if(ssave==TRUE){dev.off()}
   }
@@ -1317,7 +1316,7 @@ fpBPerpD2<-function(actualplot,expectation,SD,SK,Levelss,ssave,nahme){
     if(ssave==TRUE){pdf(file=file.path("C:","Users","tcvin","OneDrive","Work","DIS","pics","core",paste(nahme,"sk",".pdf",sep="")))}
     plot.new()
     plot.window(xlim = c(1.2,3.4),ylim = c(1.2,3.4),asp=NA)
-    .filled.contour(x,y, z,levels = seq(-2,2,0.1), col = colorRampPalette(c('red','chartreuse','navy'),1)(41))
+    .filled.contour(x,y, z,levels = seq(-2,2,length=24), col = colorRampPalette(c('red','grey97','blue'),1)(23))
     points(js[,1],js[,2],lwd=6)
     if(ssave==TRUE){dev.off()}
   }
@@ -1392,7 +1391,7 @@ fpBPara2<-function(actualplot,expectation,SD,SK,Levelss,ssave,nahme){
     if(ssave==TRUE){pdf(file=file.path("C:","Users","tcvin","OneDrive","Work","DIS","pics","core",paste(nahme,"sk",".pdf",sep="")))}
     plot.new()
     plot.window(xlim = c(1.2,3.4),ylim = c(1.2,3.4),asp=NA)
-    .filled.contour(x,y, z,levels = seq(-2,2,0.1), col = colorRampPalette(c('red','chartreuse','navy'),1)(41))
+    .filled.contour(x,y, z,levels = seq(-2,2,length=24), col = colorRampPalette(c('red','grey97','blue'),1)(23))
     if(ssave==TRUE){dev.off()}
   }
 }
@@ -1491,7 +1490,7 @@ fpBParaD2<-function(actualplot,expectation,SD,SK,Levelss,ssave,nahme){
     if(ssave==TRUE){pdf(file=file.path("C:","Users","tcvin","OneDrive","Work","DIS","pics","core",paste(nahme,"sd",".pdf",sep="")))}
     plot.new()
     plot.window(xlim = c(1.2,3.4),ylim = c(1.2,3.4),asp=NA)
-    .filled.contour(x,y, z,levels = seq(0,1,0.05), col = terrain.colors(20))
+    .filled.contour(x,y, z,levels = seq(0,0.65,0.05), col = terrain.colors(12))
     points(js[,1],js[,2],lwd=6)
     if(ssave==TRUE){dev.off()}
   }
@@ -1502,7 +1501,7 @@ fpBParaD2<-function(actualplot,expectation,SD,SK,Levelss,ssave,nahme){
     if(ssave==TRUE){pdf(file=file.path("C:","Users","tcvin","OneDrive","Work","DIS","pics","core",paste(nahme,"sk",".pdf",sep="")))}
     plot.new()
     plot.window(xlim = c(1.2,3.4),ylim = c(1.2,3.4),asp=NA)
-    .filled.contour(x,y, z,levels = seq(-2,2,0.1), col = colorRampPalette(c('red','chartreuse','navy'),1)(41))
+    .filled.contour(x,y, z,levels = seq(-2,2,length=24), col = colorRampPalette(c('red','grey97','blue'),1)(23))
     points(js[,1],js[,2],lwd=6)
     if(ssave==TRUE){dev.off()}
   }
@@ -1619,7 +1618,7 @@ TD1<-function(actualplot,expectation,SD,SK,Lev,ssave,nahme,x1value){
     if(ssave==TRUE){png(file=file.path("C:","Users","tcvin","OneDrive","Work","DIS","pics","core",paste(nahme,"sk",".png",sep="")))}
     plot.new()
     plot.window(xlim = c(0,1),ylim = c(0,1),asp=NA)
-    .filled.contour(x,y, z,levels = seq(-2.0003,2,0.1), col = colorRampPalette(c('red','chartreuse','navy'),1)(41))
+    .filled.contour(x,y, z,levels = seq(-2,2,length=24), col = colorRampPalette(c('red','grey97','blue'),1)(23))
     if(ssave==TRUE){dev.off()}
   }
 }
@@ -1697,7 +1696,7 @@ TD2<-function(actualplot,expectation,SD,SK,Lev,ssave,nahme,x2value){
     
     plot.new()
     plot.window(xlim = c(0,1),ylim = c(0,1),asp=NA)
-    .filled.contour(x,y, z,levels = seq(-2.0003,2,0.1), col = colorRampPalette(c('red','chartreuse','navy'),1)(41))
+    .filled.contour(x,y, z,levels = seq(-2,2,length=24), col = colorRampPalette(c('red','grey97','blue'),1)(23))
     if(ssave==TRUE){dev.off()}
   }
 }
@@ -1851,7 +1850,7 @@ TDD1<-function(actualplot,expectation,SD,SK,Lev,ssave,nahme,x1value){
     
     plot.new()
     plot.window(xlim = c(0,1),ylim = c(0,1),asp=NA)
-    .filled.contour(x,y, z,levels = seq(-2.0003,2,0.1), col = colorRampPalette(c('red','chartreuse','navy'),1)(41))
+    .filled.contour(x,y, z,levels = seq(-2,2,length=24), col = colorRampPalette(c('red','grey97','blue'),1)(23))
     js1<-js[which(abs(js[,1]-x1value)<0.1),]
     js2<-js[which(abs(js[,1]-x1value)>0.1 & abs(js[,1]-x1value)<0.2),]
     js3<-js[which(abs(js[,1]-x1value)>0.2 & abs(js[,1]-x1value)<0.3),]
@@ -2014,7 +2013,7 @@ TDD2<-function(actualplot,expectation,SD,SK,Lev,ssave,nahme,x2value){
     
     plot.new()
     plot.window(xlim = c(0,1),ylim = c(0,1),asp=NA)
-    .filled.contour(x,y, z,levels = seq(-2.0003,2,0.1), col = colorRampPalette(c('red','chartreuse','navy'),1)(41))
+    .filled.contour(x,y, z,levels = seq(-2,2,length=24), col = colorRampPalette(c('red','grey97','blue'),1)(23))
     js1<-js[which(abs(js[,2]-x2value)<0.1),]
     js2<-js[which(abs(js[,2]-x2value)>0.1 & abs(js[,2]-x2value)<0.2),]
     js3<-js[which(abs(js[,2]-x2value)>0.2 & abs(js[,2]-x2value)<0.3),]
@@ -2043,8 +2042,8 @@ js<-maximinLHS(16,3) #The LHS used in the report was maximined by easy manipulat
 
 # The values x1value and x2value can be change to any number from 0 to 1 to view emulation through the entire plane
 TD1(actualplot=TRUE,expectation=TRUE,SD=TRUE,SK=TRUE,Lev=seq(-1,1.7,0.1),ssave=ss,nahme='three',x1value=0)
-TD2(actualplot=TRUE,expectation=TRUE,SD=TRUE,SK=FALSE,Lev=seq(-1,1.7,0.1),ssave=ss,nahme='three',x2value=0)
+TD2(actualplot=TRUE,expectation=TRUE,SD=TRUE,SK=TRUE,Lev=seq(-1,1.7,0.1),ssave=ss,nahme='three',x2value=0)
 
-TDD1(actualplot=TRUE,expectation=TRUE,SD=TRUE,SK=FALSE,Lev=seq(-1,1.7,0.1),ssave=ss,nahme='three',x1value=0)
-TDD2(actualplot=TRUE,expectation=TRUE,SD=TRUE,SK=FALSE,Lev=seq(-1,1.7,0.1),ssave=ss,nahme='three',x2value=0)
+TDD1(actualplot=TRUE,expectation=TRUE,SD=TRUE,SK=TRUE,Lev=seq(-1,1.7,0.1),ssave=ss,nahme='three',x1value=0)
+TDD2(actualplot=TRUE,expectation=TRUE,SD=TRUE,SK=TRUE,Lev=seq(-1,1.7,0.1),ssave=ss,nahme='three',x2value=0)
 
